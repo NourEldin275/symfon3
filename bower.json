@@ -1,0 +1,17 @@
+{
+  "name": "symfon3",
+  "homepage": "",
+  "authors": [
+    "Nour Eldin Ali <noureldin.ali.m@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests"
+  ]
+}

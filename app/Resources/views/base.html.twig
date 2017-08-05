@@ -2,12 +2,32 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Symfony 3{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        {% endblock %}
+        {% block stylsheets %}
+            <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+        {% endblock %}
     </head>
     <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {% block flash_message %}
+                        {% for flash_message in app.session.flashBag.get('success') %}
+                            <div class="alert alert-success alert-dismissable" role="alert">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> {{ flash_message }}
+                            </div>
+                        {% endfor %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
     </body>
 </html>

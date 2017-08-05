@@ -1,0 +1,25 @@
+{{ form_start(form) }}
+
+<div class="form-group">
+    {{ form_label(form.name, 'Task Name') }}
+    {{ form_errors(form.name) }}
+    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.description, 'Description (optional)') }}
+    {{ form_errors(form.description) }}
+    {{ form_widget(form.description,{'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.url, 'URL (optional)') }}
+    {{ form_errors(form.url) }}
+    {{ form_widget(form.url, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div>
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}, 'label': 'Submit'}) }}
+</div>
+
+{{ form_end(form) }}

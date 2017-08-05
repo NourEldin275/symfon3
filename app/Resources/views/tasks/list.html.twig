@@ -1,0 +1,31 @@
+{% if tasks is not empty %}
+   <div class="row">
+       {% for task in tasks %}
+           <div class="col-md-6">
+               <div class="panel panel-default">
+                   <div class="panel-heading">
+                       <h3 class="panel-title">
+                           Task #{{ loop.index }}:
+                           <strong>
+                               {% if task.url is not empty %}
+                                   <a href="{{ task.url }}">
+                                       {{ task.name }}
+                                   </a>
+                               {% else %}
+                                   {{ task.name }}
+                               {% endif %}
+                           </strong>
+                       </h3>
+                   </div>
+                   <div class="panel-body">
+                       {{ task.description|length > 50 ? task.description|slice(0, 50) ~ '...' : task.description }}
+                   </div>
+               </div>
+           </div>
+       {% endfor %}
+   </div>
+{% else %}
+    <div class="alert alert-info">
+        There are no tasks. Create one using the form above.
+    </div>
+{% endif %}
